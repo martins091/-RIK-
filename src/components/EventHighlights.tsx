@@ -1,55 +1,61 @@
-import { Trophy, Utensils, Sparkles, Music, Gift, PartyPopper } from 'lucide-react';
-
 export default function EventHighlights() {
   const highlights = [
     {
-      icon: Trophy,
       title: "GWR Longest Table",
-      description: "Witness history as we attempt the Guinness World Record for the longest table at 3.5-4KM",
-      image: "/gwr.jpg"
+      description:
+        "Witness history as we attempt the Guinness World Record for the longest table at 3.5–4KM.",
+      image:
+        "https://images.pexels.com/photos/32184374/pexels-photo-32184374.jpeg", // Nigerian banquet setup / crowd
     },
     {
-      icon: Sparkles,
       title: "National Oriki Praise Session",
-      description: "Cultural instrumentalists and praise singers from various tribes perform as a tribute to food, tourism and culture",
-      image: "/oriki.jpg"
+      description:
+        "Traditional praise singers and drummers performing Oríkì across Nigerian cultures.",
+      image:
+        "https://images.pexels.com/photos/32184007/pexels-photo-32184007.jpeg", // Traditional Nigerian cultural portrait
     },
     {
-      icon: Utensils,
-      title: "Signature P-BAT Unity Menu",
-      description: "Experience the finest dining from all over Nigeria, celebrating a combination of mouthwatering dishes",
-      image: "/cuisine.jpg"
+      title: "Signature P‑BAT Unity Menu",
+      description:
+        "Experience exquisite Nigerian dishes representing unity across all regions.",
+      image:
+        "https://images.pexels.com/photos/2990740/pexels-photo-2990740.jpeg", // Nigerian cuisine spread
     },
     {
-      icon: Sparkles,
       title: "Parade of Dynasties",
-      description: "Food Meets Fashion - A cultural fashion show celebrating Nigeria's rich traditions with timeless traditional fabrics",
-      image: "/fashion.jpg"
+      description:
+        "Food Meets Fashion — A cultural fashion parade showcasing Nigerian royal heritage.",
+      image:
+        "https://images.pexels.com/photos/32184014/pexels-photo-32184014.jpeg",
     },
     {
-      icon: Music,
       title: "Cultural Entertainment",
-      description: "Collaboration with National Council for Arts & Culture (NCAC) and National Troupe of Nigeria (NTN)",
-      image: "/entertainment.jpg"
+      description:
+        "Full cultural performance by NCAC, Nigerian dancers, drummers and national troupe.",
+      image:
+        "https://images.pexels.com/photos/33716120/pexels-photo-33716120.jpeg",
     },
     {
-      icon: Gift,
       title: "National Unity Cake Cutting",
-      description: "A National Cake baked by NIHOTOUR certified Chefs will be cut by the hosts & special guests",
-      image: "/cake.jpg"
+      description:
+        "A grand unity cake baked by NIHOTOUR chefs for national celebration.",
+      image:
+        "https://images.pexels.com/photos/33927926/pexels-photo-33927926.jpeg",
     },
     {
-      icon: Gift,
       title: "Award Presentation",
-      description: "An award presentation segment will hold to present awards to Presidency and top industry recipients",
-      image: "/awards.jpg"
+      description:
+        "Prestigious award presentations to Presidency officials and top industry icons.",
+      image:
+        "https://images.pexels.com/photos/32267810/pexels-photo-32267810.jpeg",
     },
     {
-      icon: PartyPopper,
       title: "The Afterparty",
-      description: "DJ & Hypeman, Live Music, Open Bar, Whole Cow Grills, Small & Chops, and Fireworks",
-      image: "/party.jpg"
-    }
+      description:
+        "Enjoy DJ, live band, Nigerian grills, small chops, open bar & fireworks.",
+      image:
+        "https://images.pexels.com/photos/32184674/pexels-photo-32184674.jpeg",
+    },
   ];
 
   return (
@@ -61,7 +67,8 @@ export default function EventHighlights() {
           </h2>
           <div className="w-24 h-1 bg-[#D4AF37] mx-auto mb-6"></div>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-            Experience an unforgettable celebration of Nigerian culture, cuisine, and creativity
+            Experience an unforgettable celebration of Nigerian culture,
+            cuisine, and creativity.
           </p>
         </div>
 
@@ -69,18 +76,22 @@ export default function EventHighlights() {
           {highlights.map((highlight, index) => (
             <div
               key={index}
-              className="group bg-gradient-to-br from-gray-50 to-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"
+              className="group rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"
             >
-              <div className="relative h-48 bg-gradient-to-br from-[#8B0000] to-[#D4AF37] flex items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 bg-black/20"></div>
-                <highlight.icon className="relative z-10 text-white group-hover:scale-110 transition-transform" size={64} />
+              <div
+                className="relative h-48 bg-cover bg-center"
+                style={{ backgroundImage: `url(${highlight.image})` }}
+              >
+                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all"></div>
               </div>
 
               <div className="p-6">
                 <h3 className="text-xl font-bold text-[#8B0000] mb-3 group-hover:text-[#A52A2A] transition-colors">
                   {highlight.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">{highlight.description}</p>
+                <p className="text-gray-600 leading-relaxed">
+                  {highlight.description}
+                </p>
               </div>
 
               <div className="px-6 pb-6">
@@ -92,19 +103,31 @@ export default function EventHighlights() {
 
         <div className="mt-16 bg-gradient-to-r from-[#008751] via-[#D4AF37] to-[#8B0000] rounded-2xl p-1">
           <div className="bg-white rounded-xl p-8 md:p-12">
-            <h3 className="text-3xl font-bold text-[#8B0000] mb-6 text-center">Event Schedule</h3>
+            <h3 className="text-3xl font-bold text-[#8B0000] mb-6 text-center">
+              Event Schedule
+            </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="bg-gray-50 rounded-lg p-6 border-l-4 border-[#8B0000]">
-                <h4 className="text-xl font-bold text-gray-800 mb-2">December 2-6, 2025</h4>
-                <p className="text-gray-600">NIHOTOUR Week - Full event experience</p>
+                <h4 className="text-xl font-bold text-gray-800 mb-2">
+                  December 2–6, 2025
+                </h4>
+                <p className="text-gray-600">
+                  NIHOTOUR Week – Full event experience
+                </p>
               </div>
               <div className="bg-gray-50 rounded-lg p-6 border-l-4 border-[#D4AF37]">
-                <h4 className="text-xl font-bold text-gray-800 mb-2">December 5, 2025</h4>
-                <p className="text-gray-600">Initial GWR Assessment confirmation</p>
+                <h4 className="text-xl font-bold text-gray-800 mb-2">
+                  December 5, 2025
+                </h4>
+                <p className="text-gray-600">
+                  Initial GWR Assessment confirmation
+                </p>
               </div>
               <div className="bg-gray-50 rounded-lg p-6 border-l-4 border-[#008751]">
-                <h4 className="text-xl font-bold text-gray-800 mb-2">Daily Timing</h4>
-                <p className="text-gray-600">11:00 AM - 10:00 PM</p>
+                <h4 className="text-xl font-bold text-gray-800 mb-2">
+                  Daily Timing
+                </h4>
+                <p className="text-gray-600">11:00 AM – 10:00 PM</p>
               </div>
               <div className="bg-gray-50 rounded-lg p-6 border-l-4 border-[#8B0000]">
                 <h4 className="text-xl font-bold text-gray-800 mb-2">Venue</h4>
