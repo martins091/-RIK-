@@ -1,101 +1,144 @@
-import { Award, Users, Globe, Heart } from 'lucide-react';
+import {
+  Award,
+  Users,
+  Globe,
+  Heart,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
+import { useState, useEffect } from "react";
+
+// Images
+import imgOne from "../../public/first.png";
+import imgTwo from "../../public/second.png";
+import imgThird from "../../public/thirdd.png";
+import imgFourth from "../../public/fourth.png";
+import imgFifth from "../../public/fifth.png";
+import imgSix from "../../public/sixth.png";
+import imgSeven from "../../public/seveth.png";
+import imgEight from "../../public/eighth.png";
+import imgNine from "../../public/nineth.png";
+import imgTen from "../../public/tenth.png";
+import imgEleven from "../../public/elenth.png";
 
 export default function About() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const slides = [
+    { image: imgOne, title: "Slide One" },
+    { image: imgTwo, title: "Slide Two" },
+    { image: imgThird, title: "Slide Three" },
+    { image: imgFourth, title: "Slide Four" },
+    { image: imgFifth, title: "Slide Five" },
+    { image: imgSix, title: "Slide Six" },
+    { image: imgSeven, title: "Slide Seven" },
+    { image: imgEight, title: "Slide Eight" },
+    { image: imgNine, title: "Slide Nine" },
+    { image: imgTen, title: "Slide Ten" },
+    { image: imgEleven, title: "Slide Eleven" },
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
   const objectives = [
     {
       icon: Award,
       title: "Set a Guinness World Record",
-      description: "Achieve the longest table in the world at 3.5KM - 4KM in FCT Abuja",
-      color: "from-[#8B0000] to-[#A52A2A]"
+      description:
+        "Achieve the longest table in the world at 3.5KM - 4KM in FCT Abuja",
+      color: "from-[#8B0000] to-[#A52A2A]",
     },
     {
       icon: Globe,
       title: "Showcase African Excellence",
-      description: "Celebrate Nigeria's culinary excellence through an immersive Royal Banquet Dining Experience",
-      color: "from-[#D4AF37] to-[#FFD700]"
+      description:
+        "Celebrate Nigeria's culinary excellence through an immersive Royal Banquet Dining Experience",
+      color: "from-[#D4AF37] to-[#FFD700]",
     },
     {
       icon: Users,
       title: "Promote Nigerian Culture",
-      description: "Promote Nigerian cuisine and cultural excellence while showcasing the industry, brands and businesses",
-      color: "from-[#008751] to-[#00A86B]"
+      description:
+        "Promote Nigerian cuisine and cultural excellence while showcasing the industry, brands and businesses",
+      color: "from-[#008751] to-[#00A86B]",
     },
     {
       icon: Heart,
       title: "Celebrate National Unity",
-      description: "Celebrate and showcase Nigeria's identity, unity and confidence through art, culture, bread experiences",
-      color: "from-[#8B0000] to-[#D4AF37]"
-    }
+      description:
+        "Celebrate and showcase Nigeria's identity, unity and confidence through art, culture, bread experiences",
+      color: "from-[#8B0000] to-[#D4AF37]",
+    },
   ];
 
   return (
-    <section id="about" className="py-20 bg-gradient-to-b from-white to-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-[#8B0000] mb-4">
-            About ÒRIKÌ 2025
-          </h2>
-          <div className="w-24 h-1 bg-[#D4AF37] mx-auto mb-6"></div>
-          <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-            A groundbreaking, multi-sensory African dining and cultural event celebrating
-            Nigeria's rich heritage through food, lifestyle, arts, fashion, tourism, and entertainment.
-          </p>
-        </div>
+   <div className="relative order-1 lg:order-2 h-full w-full">
+  <div className="relative w-full h-full min-h-[550px] md:min-h-[650px] lg:min-h-[750px] rounded-2xl overflow-hidden shadow-2xl group">
+    {slides.map((slide, index) => (
+      <div
+        key={index}
+        className={`absolute inset-0 flex items-center justify-center transition-opacity duration-1000 ${
+          index === currentSlide ? "opacity-100" : "opacity-0"
+        }`}
+      >
+        <img
+          src={slide.image}
+          alt={slide.title}
+          className="w-full h-full object-contain bg-black"
+          style={{ maxHeight: "100%", maxWidth: "100%" }}
+        />
 
-        <div className="mb-20">
-          <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 border-t-4 border-[#8B0000]">
-            <h3 className="text-3xl font-bold text-[#8B0000] mb-6">The Vision</h3>
-            <p className="text-lg text-gray-700 leading-relaxed mb-6">
-              To create a unique, multi-sensory African dining experience where every participant
-              feels connected to diverse cultures in meaningful ways. ÒRIKÌ brings together
-              Nigeria's finest traditions, cuisine, fashion, and entertainment in an unprecedented
-              celebration of our heritage.
-            </p>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              This event features a Guinness World Record attempt for The Longest Table in the World,
-              the largest royal banquet experience in Africa, cultural performances, the Oriki praise
-              session, signature cuisine showcases, fashion parades, and a vibrant display of Nigeria's
-              creative industries.
-            </p>
-          </div>
-        </div>
-
-        <div>
-          <h3 className="text-3xl font-bold text-center text-[#8B0000] mb-12">Event Objectives</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {objectives.map((objective, index) => (
-              <div
-                key={index}
-                className="group bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
-              >
-                <div className={`h-2 bg-gradient-to-r ${objective.color}`}></div>
-                <div className="p-8">
-                  <div className={`w-16 h-16 rounded-full bg-gradient-to-r ${objective.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
-                    <objective.icon className="text-white" size={32} />
-                  </div>
-                  <h4 className="text-2xl font-bold text-gray-800 mb-4">{objective.title}</h4>
-                  <p className="text-gray-600 leading-relaxed">{objective.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="mt-20 bg-gradient-to-r from-[#8B0000] to-[#A52A2A] rounded-2xl p-8 md:p-12 text-white text-center">
-          <h3 className="text-3xl font-bold mb-4">Powered By</h3>
-          <div className="flex flex-wrap justify-center items-center gap-8 mt-8">
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg px-8 py-4 border border-white/20">
-              <p className="text-xl font-semibold">Federal Government of Nigeria</p>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg px-8 py-4 border border-white/20">
-              <p className="text-xl font-semibold">NIHOTOUR</p>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg px-8 py-4 border border-white/20">
-              <p className="text-xl font-semibold">NOVAROSTA</p>
-            </div>
-          </div>
+        <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/60 via-transparent to-transparent">
+          <p className="text-white text-2xl font-bold">{slide.title}</p>
         </div>
       </div>
-    </section>
+    ))}
+
+    {/* Left Button */}
+    <button
+      onClick={prevSlide}
+      className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white p-3 rounded-full transition-all transform hover:scale-110 opacity-0 group-hover:opacity-100 duration-300"
+    >
+      <ChevronLeft size={24} />
+    </button>
+
+    {/* Right Button */}
+    <button
+      onClick={nextSlide}
+      className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white p-3 rounded-full transition-all transform hover:scale-110 opacity-0 group-hover:opacity-100 duration-300"
+    >
+      <ChevronRight size={24} />
+    </button>
+
+    {/* Dots */}
+    <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+      {slides.map((_, index) => (
+        <button
+          key={index}
+          onClick={() => setCurrentSlide(index)}
+          className={`h-3 rounded-full transition-all ${
+            index === currentSlide
+              ? "bg-[#D4AF37] w-8"
+              : "bg-white/50 hover:bg-white/70 w-3"
+          }`}
+        />
+      ))}
+    </div>
+  </div>
+</div>
+
   );
 }

@@ -1,25 +1,41 @@
+import { useRef, useState } from "react";
+
+// ❗ Replace with your actual video file
+const eventVideo = "/oriki.mp4";
+
 export default function EventHighlights() {
+  const videoRef = useRef(null);
+  const [isMuted, setIsMuted] = useState(true);
+
+  const toggleMute = () => {
+    const video = videoRef.current;
+    if (video) {
+      video.muted = !video.muted;
+      setIsMuted(video.muted);
+    }
+  };
+
   const highlights = [
     {
       title: "GWR Longest Table",
       description:
         "Witness history as we attempt the Guinness World Record for the longest table at 3.5–4KM.",
       image:
-        "https://images.pexels.com/photos/32184374/pexels-photo-32184374.jpeg", // Nigerian banquet setup / crowd
+        "https://images.pexels.com/photos/32184374/pexels-photo-32184374.jpeg",
     },
     {
       title: "National Oriki Praise Session",
       description:
         "Traditional praise singers and drummers performing Oríkì across Nigerian cultures.",
       image:
-        "https://images.pexels.com/photos/32184007/pexels-photo-32184007.jpeg", // Traditional Nigerian cultural portrait
+        "https://images.pexels.com/photos/32184007/pexels-photo-32184007.jpeg",
     },
     {
-      title: "Signature P‑BAT Unity Menu",
+      title: "Signature P-BAT Unity Menu",
       description:
         "Experience exquisite Nigerian dishes representing unity across all regions.",
       image:
-        "https://images.pexels.com/photos/2990740/pexels-photo-2990740.jpeg", // Nigerian cuisine spread
+        "https://images.pexels.com/photos/2990740/pexels-photo-2990740.jpeg",
     },
     {
       title: "Parade of Dynasties",
@@ -61,28 +77,29 @@ export default function EventHighlights() {
   return (
     <section id="event" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* ---- Header ---- */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-[#8B0000] mb-4">
             Event Highlights
           </h2>
           <div className="w-24 h-1 bg-[#D4AF37] mx-auto mb-6"></div>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-            Experience an unforgettable celebration of Nigerian culture,
-            cuisine, and creativity.
+            Experience an unforgettable celebration of Nigerian culture, cuisine, and creativity.
           </p>
         </div>
 
+        {/* ---- Highlights Grid ---- */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {highlights.map((highlight, index) => (
             <div
               key={index}
-              className="group rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"
+              className="group rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 hover:-translate-y-2 border border-gray-100"
             >
               <div
                 className="relative h-48 bg-cover bg-center"
                 style={{ backgroundImage: `url(${highlight.image})` }}
               >
-                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all"></div>
+                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition"></div>
               </div>
 
               <div className="p-6">
@@ -101,38 +118,31 @@ export default function EventHighlights() {
           ))}
         </div>
 
+        {/* ---- Video Section ---- */}
         <div className="mt-16 bg-gradient-to-r from-[#008751] via-[#D4AF37] to-[#8B0000] rounded-2xl p-1">
-          <div className="bg-white rounded-xl p-8 md:p-12">
-            <h3 className="text-3xl font-bold text-[#8B0000] mb-6 text-center">
-              Event Schedule
+          <div className="bg-white rounded-2xl p-6">
+            <h3 className="text-2xl font-bold text-center text-[#8B0000] mb-6">
+              Watch the Event Preview
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-gray-50 rounded-lg p-6 border-l-4 border-[#8B0000]">
-                <h4 className="text-xl font-bold text-gray-800 mb-2">
-                  December 2–6, 2025
-                </h4>
-                <p className="text-gray-600">
-                  NIHOTOUR Week – Full event experience
-                </p>
-              </div>
-              <div className="bg-gray-50 rounded-lg p-6 border-l-4 border-[#D4AF37]">
-                <h4 className="text-xl font-bold text-gray-800 mb-2">
-                  December 5, 2025
-                </h4>
-                <p className="text-gray-600">
-                  Initial GWR Assessment confirmation
-                </p>
-              </div>
-              <div className="bg-gray-50 rounded-lg p-6 border-l-4 border-[#008751]">
-                <h4 className="text-xl font-bold text-gray-800 mb-2">
-                  Daily Timing
-                </h4>
-                <p className="text-gray-600">11:00 AM – 10:00 PM</p>
-              </div>
-              <div className="bg-gray-50 rounded-lg p-6 border-l-4 border-[#8B0000]">
-                <h4 className="text-xl font-bold text-gray-800 mb-2">Venue</h4>
-                <p className="text-gray-600">Eagle Square, Abuja, FCT</p>
-              </div>
+
+            <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-xl">
+              <video
+                ref={videoRef}
+                src={eventVideo}
+                autoPlay
+                muted={isMuted}
+                loop
+                playsInline
+                className="w-full h-full object-cover rounded-xl"
+              ></video>
+
+              {/* Sound Button */}
+              <button
+                onClick={toggleMute}
+                className="absolute bottom-4 right-4 bg-black/60 text-white px-4 py-2 rounded-full text-sm backdrop-blur-sm hover:bg-black/80 transition"
+              >
+                {isMuted ? "Unmute 🔊" : "Mute 🔇"}
+              </button>
             </div>
           </div>
         </div>
