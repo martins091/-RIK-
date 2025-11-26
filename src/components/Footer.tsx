@@ -38,11 +38,6 @@ export default function Footer() {
                   Register
                 </a>
               </li>
-              <li>
-                <a href="#contact" className="text-white/80 hover:text-white transition-colors">
-                  Contact
-                </a>
-              </li>
             </ul>
           </div>
 
@@ -80,22 +75,34 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="mt-6 text-center">
-            <p className="text-white/80 text-sm mb-2">Powered By</p>
-            <div className="flex flex-wrap justify-center gap-4 text-sm">
-              <span className="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
-                Federal Government of Nigeria
-              </span>
-              <span className="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
-                NIHOTOUR
-              </span>
-              <span className="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
-                NOVAROSTA
-              </span>
+          <div className="mt-8 text-center">
+            <p className="text-white/90 text-base font-semibold mb-4">Official Partners</p>
+            <div className="flex flex-wrap justify-center items-center gap-8">
+              <div className="bg-white/10 backdrop-blur-sm p-4 rounded-lg border border-white/20 hover:bg-white/20 transition-all">
+                <img
+                  src="https://via.placeholder.com/150x60/FFFFFF/8B0000?text=Federal+Govt"
+                  alt="Federal Government of Nigeria"
+                  className="h-12 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity"
+                />
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm p-4 rounded-lg border border-white/20 hover:bg-white/20 transition-all">
+                <img
+                  src="https://via.placeholder.com/150x60/FFFFFF/8B0000?text=NIHOTOUR"
+                  alt="NIHOTOUR"
+                  className="h-12 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity"
+                />
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm p-4 rounded-lg border border-white/20 hover:bg-white/20 transition-all">
+                <img
+                  src="https://via.placeholder.com/150x60/FFFFFF/8B0000?text=NOVAROSTA"
+                  alt="NOVAROSTA"
+                  className="h-12 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity"
+                />
+              </div>
             </div>
           </div>
 
-          <div className="mt-6 text-center text-white/60 text-xs">
+          <div className="mt-8 text-center text-white/60 text-xs">
             <p>Developed by JavaPlus Innovations</p>
           </div>
         </div>

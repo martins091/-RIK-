@@ -26,20 +26,31 @@ export default function Registration() {
   };
 
   return (
-    <section id="register" className="py-20 bg-gradient-to-b from-gray-50 to-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section
+      id="register"
+      className="relative py-20 overflow-hidden"
+      style={{
+        backgroundImage: `url('https://images.pexels.com/photos/1395967/pexels-photo-1395967.jpeg?auto=compress&cs=tinysrgb&w=1920')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed'
+      }}
+    >
+      <div className="absolute inset-0 bg-gradient-to-b from-gray-900/90 via-gray-900/85 to-gray-900/90"></div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-[#8B0000] mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Register Now
           </h2>
           <div className="w-24 h-1 bg-[#D4AF37] mx-auto mb-6"></div>
-          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+          <p className="text-xl text-white/90 max-w-3xl mx-auto">
             Secure your seat at this historic event
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-          <div className="bg-white rounded-xl shadow-lg p-8 border-t-4 border-gray-400 hover:shadow-2xl transition-all transform hover:-translate-y-2">
+          <div className="bg-white/95 backdrop-blur-sm rounded-xl shadow-2xl p-8 border-t-4 border-gray-400 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] transition-all transform hover:-translate-y-2">
             <div className="text-center">
               <h3 className="text-2xl font-bold text-gray-800 mb-4">Regular</h3>
               <div className="w-16 h-1 bg-gray-400 mx-auto mb-6"></div>
@@ -64,7 +75,7 @@ export default function Registration() {
             </div>
           </div>
 
-          <div className="bg-white rounded-xl shadow-xl p-8 border-t-4 border-[#D4AF37] hover:shadow-2xl transition-all transform hover:-translate-y-2 relative">
+          <div className="bg-white/95 backdrop-blur-sm rounded-xl shadow-2xl p-8 border-t-4 border-[#D4AF37] hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] transition-all transform hover:-translate-y-2 relative">
             <div className="absolute -top-4 right-4 bg-[#D4AF37] text-white px-4 py-1 rounded-full text-sm font-bold">
               PREMIUM
             </div>
@@ -96,7 +107,7 @@ export default function Registration() {
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-[#8B0000] to-[#A52A2A] rounded-xl shadow-xl p-8 text-white hover:shadow-2xl transition-all transform hover:-translate-y-2 relative">
+          <div className="bg-gradient-to-br from-[#8B0000] to-[#A52A2A] rounded-xl shadow-2xl p-8 text-white hover:shadow-[0_0_30px_rgba(139,0,0,0.5)] transition-all transform hover:-translate-y-2 relative">
             <div className="absolute -top-4 right-4 bg-[#D4AF37] text-[#8B0000] px-4 py-1 rounded-full text-sm font-bold">
               EXCLUSIVE
             </div>
@@ -130,7 +141,7 @@ export default function Registration() {
         </div>
 
         <div className="max-w-3xl mx-auto">
-          <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 border-t-4 border-[#8B0000]">
+          <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl p-8 md:p-12 border-t-4 border-[#8B0000]">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">
@@ -312,7 +323,7 @@ export default function Registration() {
             </div>
           </div>
 
-          <div className="mt-8 bg-gradient-to-r from-[#8B0000] to-[#A52A2A] rounded-xl p-6 text-white text-center">
+          <div className="mt-8 bg-gradient-to-r from-[#8B0000] to-[#A52A2A] rounded-xl p-6 text-white text-center shadow-2xl">
             <h3 className="text-2xl font-bold mb-2">Seats Allocated</h3>
             <p className="text-5xl font-bold text-[#D4AF37] mb-2">2,847</p>
             <p className="text-sm">Total seats booked across all categories</p>
